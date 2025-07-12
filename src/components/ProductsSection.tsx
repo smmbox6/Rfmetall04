@@ -140,16 +140,17 @@ const ProductsSection: React.FC = () => {
               
               <div className="space-y-6">
                 <h4 className="text-2xl font-bold mb-6">Популярные размеры:</h4>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                   {['32×3', '38×4', '57×3', '76×4', '89×4', '108×4', '133×4', '159×4'].map((size, index) => (
-                    <div key={size} className={`backdrop-blur-sm border p-4 rounded-xl text-center ${
-                      index % 4 === 0 ? 'bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30' :
-                      index % 4 === 1 ? 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-500/30' :
-                      index % 4 === 2 ? 'bg-gradient-to-r from-purple-500/20 to-indigo-500/20 border-purple-500/30' :
-                      'bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border-orange-500/30'
+                    <div key={size} className={`backdrop-blur-sm border p-3 sm:p-4 rounded-xl text-center transition-all hover:scale-105 cursor-pointer ${
+                      index % 4 === 0 ? 'bg-gradient-to-br from-red-500/20 to-pink-500/20 border-red-500/30 hover:from-red-500/30 hover:to-pink-500/30' :
+                      index % 4 === 1 ? 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border-blue-500/30 hover:from-blue-500/30 hover:to-cyan-500/30' :
+                      index % 4 === 2 ? 'bg-gradient-to-br from-purple-500/20 to-indigo-500/20 border-purple-500/30 hover:from-purple-500/30 hover:to-indigo-500/30' :
+                      'bg-gradient-to-br from-orange-500/20 to-yellow-500/20 border-orange-500/30 hover:from-orange-500/30 hover:to-yellow-500/30'
                     }`}>
-                      <div className="font-bold text-lg">{size}</div>
-                      <div className="text-green-200 text-sm">В наличии</div>
+                      <div className="font-bold text-base sm:text-lg mb-1">{size}</div>
+                      <div className="text-green-200 text-xs sm:text-sm">В наличии</div>
+                      <div className="text-green-100 text-xs mt-1">от 63 000 ₸/т</div>
                     </div>
                   ))}
                 </div>
@@ -184,16 +185,17 @@ const ProductsSection: React.FC = () => {
               
               <div className="space-y-6">
                 <h4 className="text-2xl font-bold mb-6">Популярные размеры:</h4>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                   {['20×20×2', '25×25×2', '30×30×3', '40×40×3', '50×50×4', '60×60×4', '80×80×5', '100×100×6'].map((size, index) => (
-                    <div key={size} className={`backdrop-blur-sm border p-4 rounded-xl text-center ${
-                      index % 4 === 0 ? 'bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border-yellow-500/30' :
-                      index % 4 === 1 ? 'bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-green-500/30' :
-                      index % 4 === 2 ? 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-500/30' :
-                      'bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-500/30'
+                    <div key={size} className={`backdrop-blur-sm border p-3 sm:p-4 rounded-xl text-center transition-all hover:scale-105 cursor-pointer ${
+                      index % 4 === 0 ? 'bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border-yellow-500/30 hover:from-yellow-500/30 hover:to-orange-500/30' :
+                      index % 4 === 1 ? 'bg-gradient-to-br from-green-500/20 to-emerald-500/20 border-green-500/30 hover:from-green-500/30 hover:to-emerald-500/30' :
+                      index % 4 === 2 ? 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border-blue-500/30 hover:from-blue-500/30 hover:to-cyan-500/30' :
+                      'bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30 hover:from-purple-500/30 hover:to-pink-500/30'
                     }`}>
-                      <div className="font-bold text-lg">{size}</div>
-                      <div className="text-orange-200 text-sm">В наличии</div>
+                      <div className="font-bold text-base sm:text-lg mb-1">{size}</div>
+                      <div className="text-orange-200 text-xs sm:text-sm">В наличии</div>
+                      <div className="text-orange-100 text-xs mt-1">от 76 000 ₸/т</div>
                     </div>
                   ))}
                 </div>

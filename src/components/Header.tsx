@@ -54,7 +54,7 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-4">
             <div className="hidden md:block text-right">
               <div className="text-xl font-bold text-white">
-                +7 (747) 219 9369
+                +7 (747) 219-93-69
               </div>
               <div className="text-sm text-blue-200">
                 Звонок бесплатный
@@ -114,7 +114,7 @@ const Header: React.FC = () => {
               </a>
               <div className="md:hidden pt-4 border-t border-blue-700">
                 <div className="text-xl font-bold text-white mb-1">
-                  +7 (747) 219 9369
+                  +7 (747) 219-93-69
                 </div>
                 <div className="text-sm text-blue-200">
                   Звонок бесплатный

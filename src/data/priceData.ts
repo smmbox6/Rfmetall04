@@ -1,10 +1,10 @@
 // Курс рубля к тенге (можно изменять)
-export const EXCHANGE_RATE = 6.72;
+export const EXCHANGE_RATE = 6.8; // Автоматический курс + 1 (например 5.8 + 1 = 6.8)
 
 // Наценки и комиссии
 export const VAT_RATE = 0.12; // 12% НДС
 export const COMMISSION_RATE = 0.30; // 30% наша наценка
-export const CURRENCY_MARKUP = 1.0; // +1 к курсу
+export const CURRENCY_MARKUP = 1.0; // +1 к курсу (уже включен в EXCHANGE_RATE)
 
 // Стоимость доставки по тоннажу (в тенге за тонну)
 export const DELIVERY_RATES = {
@@ -291,11 +291,11 @@ export const calculateDeliveryPrice = (tons: number): number => {
 
 // Функция расчета финальной цены с наценками
 export const calculateFinalPrice = (basePrice: number): number => {
-  // Убираем НДС из базовой цены
-  const priceWithoutVAT = basePrice * (1 - VAT_RATE);
+  // Убираем НДС из базовой цены (цена уже с НДС)
+  const priceWithoutVAT = basePrice / (1 + VAT_RATE);
   
-  // Конвертируем в тенге с наценкой к курсу
-  const priceInTenge = priceWithoutVAT * (EXCHANGE_RATE + CURRENCY_MARKUP);
+  // Конвертируем в тенге по курсу (курс уже включает +1)
+  const priceInTenge = priceWithoutVAT * EXCHANGE_RATE;
   
   // Добавляем НДС
   const priceWithVAT = priceInTenge * (1 + VAT_RATE);
@@ -306,14 +306,31 @@ export const calculateFinalPrice = (basePrice: number): number => {
   return Math.round(finalPrice);
 };
 
+// Функция расчета цены в рублях с наценками
+export const calculateFinalPriceRub = (basePrice: number): number => {
+  // Убираем НДС из базовой цены (цена уже с НДС)
+  const priceWithoutVAT = basePrice / (1 + VAT_RATE);
+  
+  // Добавляем НДС
+  const priceWithVAT = priceWithoutVAT * (1 + VAT_RATE);
+  
+  // Добавляем нашу комиссию
+  const finalPrice = priceWithVAT * (1 + COMMISSION_RATE);
+  
+  return Math.round(finalPrice);
+};
+
 // Функция для получения цены в зависимости от объема
-export const getPriceByVolume = (item: PriceItem, tons: number): number => {
+export const getPriceByVolume = (item: PriceItem, tons: number): { tenge: number; rub: number } => {
   let basePrice;
   if (tons >= 15) basePrice = item.priceOver15;
   else if (tons >= 5) basePrice = item.price5to15;
   else basePrice = item.price1to5;
   
-  return calculateFinalPrice(basePrice);
+  return {
+    tenge: calculateFinalPrice(basePrice),
+    rub: calculateFinalPriceRub(basePrice)
+  };
 };
 
 // Функция для конвертации рублей в тенге (устаревшая, используем calculateFinalPrice)
@@ -412,4 +429,26 @@ export const filterItems = (filters: {
   }
 
   return filtered;
+};
+
+// Функция для получения всех цен товара
+export const getAllPrices = (item: PriceItem): {
+  price1to5: { tenge: number; rub: number };
+  price5to15: { tenge: number; rub: number };
+  priceOver15: { tenge: number; rub: number };
+} => {
+  return {
+    price1to5: {
+      tenge: calculateFinalPrice(item.price1to5),
+      rub: calculateFinalPriceRub(item.price1to5)
+    },
+    price5to15: {
+      tenge: calculateFinalPrice(item.price5to15),
+      rub: calculateFinalPriceRub(item.price5to15)
+    },
+    priceOver15: {
+      tenge: calculateFinalPrice(item.priceOver15),
+      rub: calculateFinalPriceRub(item.priceOver15)
+    }
+  };
 };

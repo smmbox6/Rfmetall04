@@ -9,24 +9,29 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CallModal from './components/CallModal';
+import CartButton from './components/CartButton';
 import { CallModalProvider } from './contexts/CallModalContext';
+import { CartProvider } from './contexts/CartContext';
 
 function App() {
   return (
-    <CallModalProvider>
-      <div className="min-h-screen bg-white">
-        <Header />
-        <Hero />
-        <TrustedCompanies />
-        <ProductsSection />
-        <Features />
-        <Calculator />
-        <About />
-        <Contact />
-        <Footer />
-        <CallModal />
-      </div>
-    </CallModalProvider>
+    <CartProvider>
+      <CallModalProvider>
+        <div className="min-h-screen bg-white">
+          <Header />
+          <Hero />
+          <TrustedCompanies />
+          <ProductsSection />
+          <Features />
+          <Calculator />
+          <About />
+          <Contact />
+          <Footer />
+          <CallModal />
+          <CartButton />
+        </div>
+      </CallModalProvider>
+    </CartProvider>
   );
 }
 

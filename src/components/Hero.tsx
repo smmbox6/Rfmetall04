@@ -93,6 +93,49 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* CTA Section */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm border border-orange-500/30 rounded-3xl p-8 lg:p-12 text-center">
+          <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+            🚀 Рассчитать стоимость и заказать звонок
+          </h3>
+          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            Получите точную стоимость металлопроката с доставкой за 30 секунд. 
+            Наши специалисты свяжутся с вами для уточнения деталей.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
+            <a
+              href="#calculator"
+              className="flex-1 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all transform hover:scale-105 shadow-lg"
+            >
+              🧮 Рассчитать стоимость
+            </a>
+            <button
+              onClick={handleOrderClick}
+              className="flex-1 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all"
+            >
+              📞 Заказать звонок
+            </button>
+          </div>
+          
+          <div className="mt-8 flex flex-wrap justify-center items-center gap-6 text-blue-200">
+            <div className="flex items-center">
+              <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+              <span>Бесплатная консультация</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+              <span>Экономия до 50%</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+              <span>Доставка 5-10 дней</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

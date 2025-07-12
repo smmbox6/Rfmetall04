@@ -17,7 +17,7 @@ const About: React.FC = () => {
           
           <h2 className="text-4xl lg:text-6xl font-bold mb-8">
             <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent">
-              АТЛАНТ Снаб Сити
+              АТЛАНТ МЕТАЛЛ
             </span>
             <br />
             <span className="bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 bg-clip-text text-transparent">
@@ -60,7 +60,7 @@ const About: React.FC = () => {
                 <div>
                   <h4 className="text-xl font-bold text-gray-900 mb-2">Выгодные цены</h4>
                   <p className="text-gray-600">
-                    Прямые поставки от заводов позволяют нам предлагать цены на 10-15% ниже рыночных. 
+                    Прямые поставки от заводов позволяют нам предлагать цены до 50% ниже рыночных. 
                     Никаких посредников — только честные и прозрачные условия.
                   </p>
                 </div>

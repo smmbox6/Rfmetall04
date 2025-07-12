@@ -27,7 +27,7 @@ const Features: React.FC = () => {
     {
       icon: Award,
       title: 'Лучшие цены',
-      description: 'Экономия до 15% благодаря прямым поставкам',
+      description: 'Экономия до 50% благодаря прямым поставкам',
       color: 'from-purple-500 to-pink-500'
     },
     {
@@ -119,8 +119,8 @@ const Features: React.FC = () => {
               <div className="text-blue-100 text-lg">городов поставщиков</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-yellow-300 mb-2">15%</div>
-              <div className="text-blue-100 text-lg">экономия от рынка</div>
+              <div className="text-4xl lg:text-5xl font-bold text-yellow-300 mb-2">50%</div>
+              <div className="text-blue-100 text-lg">экономия до 50%</div>
             </div>
             <div className="text-center">
               <div className="text-4xl lg:text-5xl font-bold text-purple-300 mb-2">7-10</div>

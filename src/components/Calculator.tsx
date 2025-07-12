@@ -435,7 +435,7 @@ const Calculator: React.FC = () => {
                             </div>
                             
                             <div className="text-sm text-gray-600">
-                              Цена > 15 т: {Math.round(prices15.tenge).toLocaleString()} ₸/т
+                              Цена &gt; 15 т: {Math.round(prices15.tenge).toLocaleString()} ₸/т
                             </div>
                           </div>
                         </div>
